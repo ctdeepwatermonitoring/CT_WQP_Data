@@ -78,6 +78,19 @@ $.getJSON(ctsites,function(data){
     }).addTo(map);
   });
 
+// load GeoJSON of CT Boundary
+var linestyle = {
+    "color": "black",
+    "weight": 2,
+};
+
+  $.getJSON("CT_state_boundary.geojson",function(linedata){
+      console.log(linedata);
+      L.geoJson(linedata,{
+          style:linestyle
+      }).addTo(map);
+  });
+
 //add legend
 var legend = L.control({position: 'topleft'});
 
