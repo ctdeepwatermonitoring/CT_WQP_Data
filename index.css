@@ -22,21 +22,21 @@ body {
 /* Style the header with a grey background and some padding */
  .header {
   overflow: hidden;
-  background-color: #333;
-  padding: 20px 10px 30px;
+  background-color: #3c444d;
+  padding: 30px 10px 50px;
   height: 10px;
 }
 
  .header_txt {
      color:white;
      font-size:2vw;
-     font-family: 'Lato', sans-serif;
+     font-family: 'Gotu', sans-serif;
  }
 
 .logo_txt {
     color:white;
-    font-size:1.5vw;
-    font-family: 'Lato', sans-serif;
+    font-size:1vw;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Create three equal columns that floats next to each other */
@@ -83,22 +83,23 @@ body {
 
 #deep{
     float:right;
-    width:2 vw;
-    height:auto;
+    width:50 px;
+    height:50 px;
 }
 
 /* css to customize Leaflet default styles  */
 .custom .leaflet-popup-tip,
 .custom .leaflet-popup-content-wrapper {
-    background: #e93434;
+    background: #3c444d;
     color: #ffffff;
     font-size: 1vw;
+    font-family: 'Roboto', sans-serif;
 }
 
 .legend {
     line-height: 18px;
     color: #333333;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 0.9vw;
     padding: 1% 10%;
     background: white;
@@ -130,5 +131,5 @@ body {
 
 .legend .title{
     font-weight: bold;
-    font-style: italic;
+    font-family: 'Roboto', sans-serif;
 }
