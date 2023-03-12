@@ -1,18 +1,26 @@
 html, body {
-  height: 100%;
-}
-
-body {
+    height: 100%;
     padding: 0;
     margin: 0;
-    background-color: #333;
+    background-color: white;
     overflow: hidden;
 }
 
 #map {
     height: 90%;
     width: 100vw;
+    background-color: #ffffff;
 }
+
+a {
+    /* color:darkorange */
+    color: #00AAE7;
+  }
+  
+  a :hover {
+    background-color: #f6931f;
+  }
+  
 
 #about {
     height: 90%;
@@ -23,20 +31,20 @@ body {
  .header {
   overflow: hidden;
   background-color: #3c444d;
-  padding: 30px 10px 50px;
+  padding: 10px 10px 50px;
   height: 10px;
 }
 
  .header_txt {
      color:white;
      font-size:2vw;
-     font-family: 'Roboto', sans-serif;
+     font-family: 'Public Sans', sans-serif;;
  }
 
 .logo_txt {
     color:white;
     font-size:1vw;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Public Sans', sans-serif;;
 }
 
 /* Create three equal columns that floats next to each other */
@@ -52,7 +60,7 @@ body {
 }
 
 #logo_span{
-    position: fixed;
+    float: right;
     right: 1vw;
 }
 
@@ -70,7 +78,7 @@ body {
     text-align: center;
     padding: 0.5vw 1vw 0.5vw 2vw;
     text-decoration: none;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Public Sans', sans-serif;;
     font-size: 1.5vw;
 }
 
@@ -83,8 +91,8 @@ body {
 
 #deep{
     float:right;
-    width:50 px;
-    height:50 px;
+    width: 60 px;
+    height: 60 px;
 }
 
 /* css to customize Leaflet default styles  */
@@ -93,20 +101,20 @@ body {
     background: #3c444d;
     color: #ffffff;
     font-size: 1vw;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Public Sans', sans-serif;;
 }
 
 .legend {
     line-height: 18px;
-    color: #333333;
-    font-family: 'Roboto', sans-serif;
+    color: #0D2D6C;
+    font-family: 'Public Sans', sans-serif;;
     font-size: 0.9vw;
     padding: 1% 10%;
-    background: white;
-    background: rgba(255,255,255,0.8);
+    background: #9ECF7C;
+    opacity: 100%;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
-    width: 15vw;
+    width: 17vw;
 }
 
 .legend i {
@@ -124,12 +132,14 @@ body {
 
 .legend .circle {
     border-radius: 50%;
-    width: 14px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     margin-top: 2px;
+    background-color: #FDB515;
+    border: 3px solid #0D2D6C;
 }
 
 .legend .title{
     font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Public Sans', sans-serif;;
 }

@@ -1,14 +1,14 @@
 // initialize the map
-var lat= 41.55;
-var lng= -72.65;
-var zoom= 9;
+var lat= 41.1362;
+var lng= -72.7707;
+var zoom= 10;
 
 //Load a tile layer base map from USGS ESRI tile server https://viewer.nationalmap.gov/help/HowTo.htm
 var hydro = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer/tile/{z}/{y}/{x}',{
-    attribution: 'USGS The National Map: National Hydrography Dataset. Data refreshed March, 2020.',
+    attribution: 'USGS The National Map: National Hydrography Dataset',
     maxZoom:16}),
     topo = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}',{
-        attribution: 'USGS The National Map: National Boundaries Dataset, 3DEP Elevation Program, Geographic Names Information System, National Hydrography Dataset, National Land Cover Database, National Structures Dataset, and National Transportation Dataset; USGS Global Ecosystems; U.S. Census Bureau TIGER/Line data; USFS Road Data; Natural Earth Data; U.S. Department of State Humanitarian Information Unit; and NOAA National Centers for Environmental Information, U.S. Coastal Relief Model. Data refreshed May, 2020.USGS The National Map: National Topography Dataset. Data refreshed March, 2020.',
+        attribution: 'USGS The National Map: National Boundaries Dataset',
         maxZoom:16
     });
     Thunderforest_Landscape = L.tileLayer('https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=e4e0f2bcb8a749f4a9b355b5fca1d913', {
@@ -46,7 +46,7 @@ var customOptions =
         'className' : 'custom'
     };
 
-var ctsites = "https://www.waterqualitydata.us/data/Station/search?organization=CT_DEP01_WQX&minactivities=1&mimeType=geojson&zip=no"
+var ctsites = "https://www.waterqualitydata.us/data/Station/search?organization=CT_DEP01_WQX&project=LIS&startDateLo=01-01-2020&minactivities=1&mimeType=geojson&zip=no&providers=STORET"
 
 // load GeoJSON from an external file and display circle markers
 $.getJSON(ctsites,function(data){
@@ -54,10 +54,10 @@ $.getJSON(ctsites,function(data){
   var marker = L.geoJson(data, {
     pointToLayer: function(feature,latlng){
       var markerStyle = {
-        fillColor:'#333333',
-        radius: 5,
+        fillColor:'#FDB515',
+        radius: 9,
         color: "#0D2D6C",
-        weight: 1,
+        weight: 3,
         opacity: 1,
         fillOpacity: 0.7,
         pane: 'top'
@@ -66,7 +66,7 @@ $.getJSON(ctsites,function(data){
     },
     onEachFeature: function (feature,marker) {
       var href = "https://www.waterqualitydata.us/data/Result/search?siteid="+
-          feature.properties.MonitoringLocationIdentifier+"&mimeType=csv&zip=yes"
+          feature.properties.MonitoringLocationIdentifier+"&project=LIS&startDateLo=01-01-2020&mimeType=csv&zip=yes"
       marker.bindPopup('<b>Station: </b>'+
           feature.properties.MonitoringLocationName+'</br>'
           +"<b>SID: </b>"+feature.properties.MonitoringLocationIdentifier+'</br>'+
@@ -77,8 +77,8 @@ $.getJSON(ctsites,function(data){
 
 // load GeoJSON of CT Boundary
 var linestyle = {
-    "color": "black",
-    "weight": 2,
+    "color": "#333333",
+    "weight": 2
 };
 
   $.getJSON("CT_state_boundary.geojson",function(linedata){
@@ -100,8 +100,8 @@ var legend = L.control({position: 'topleft'});
       var day = date.getDate().toString();
       // Create Div Element and Populate it with HTML
       var div = L.DomUtil.create('div', 'legend');
-      div.innerHTML += '<p class="title">Data Retrieved from the <a href = "https://www.waterqualitydata.us/" target="_blank">WQP</a> on </br>'+days[date.getDay()]+' '+month+'/'+day+'/'+year+'</p><br>';
-      div.innerHTML += '<i class="circle" style="background: #cccccc"></i><p> Water Quality Site - Click for data</p><br>';
+      div.innerHTML += '<p class="title">Data Collected by the <a href = "https://portal.ct.gov/DEEP/Water/LIS-Monitoring/LIS-Water-Quality-and-Hypoxia-Monitoring-Program-Overview">CT DEEP LIS Monitoring and Assessement Program</a> and retrieved from the <a href = "https://www.waterqualitydata.us/" target="_blank">WQP</a> on '+days[date.getDay()]+' '+month+'/'+day+'/'+year+'</p><br>';
+      div.innerHTML += '<i class="circle"></i><p> Water Quality Site - Click for data</p><br>';
 
       // Return the Legend div containing the HTML content
       return div;
