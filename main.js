@@ -46,7 +46,7 @@ var customOptions =
         'className' : 'custom'
     };
 
-var ctsites = "https://www.waterqualitydata.us/data/Station/search?organization=CT_DEP01_WQX&minactivities=1&mimeType=geojson&zip=no"
+var ctsites = "https://www.waterqualitydata.us/data/Station/search?organization=CT_DEP01_WQX&&startDateLo=01-01-2015&startDateHi=01-01-2025&minactivities=1&mimeType=geojson&zip=no"
 
 // load GeoJSON from an external file and display circle markers
 $.getJSON(ctsites,function(data){
@@ -54,11 +54,11 @@ $.getJSON(ctsites,function(data){
   var marker = L.geoJson(data, {
     pointToLayer: function(feature,latlng){
       var markerStyle = {
-        fillColor:'#333333',
+        fillColor:'#FDB515',
         radius: 5,
         color: "#0D2D6C",
-        weight: 1,
-        opacity: 1,
+        weight: 2,
+        opacity: 0.9,
         fillOpacity: 0.7,
         pane: 'top'
       };
@@ -101,7 +101,7 @@ var legend = L.control({position: 'topleft'});
       // Create Div Element and Populate it with HTML
       var div = L.DomUtil.create('div', 'legend');
       div.innerHTML += '<p class="title">Data Retrieved from the <a href = "https://www.waterqualitydata.us/" target="_blank">WQP</a> on </br>'+days[date.getDay()]+' '+month+'/'+day+'/'+year+'</p><br>';
-      div.innerHTML += '<i class="circle" style="background: #cccccc"></i><p> Water Quality Site - Click for data</p><br>';
+      div.innerHTML += '<i class="circle" style="background: #FDB515"></i><p> Water Quality Site - Click for data</p><br>';
 
       // Return the Legend div containing the HTML content
       return div;
