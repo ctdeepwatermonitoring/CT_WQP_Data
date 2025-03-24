@@ -46,12 +46,23 @@ var customOptions =
         'className' : 'custom'
     };
 
-var ctsites = "https://www.waterqualitydata.us/data/Station/search?organization=CT_DEP01_WQX&&startDateLo=01-01-2015&startDateHi=01-01-2025&minactivities=1&mimeType=geojson&zip=no"
+var ctsites = "https://www.waterqualitydata.us/data/Station/search?organization=CT_DEP01_WQX&minactivities=1&mimeType=geojson&zip=no"
 
 // load GeoJSON from an external file and display circle markers
 $.getJSON(ctsites,function(data){
     console.log(data);
-  var marker = L.geoJson(data, {
+
+  useData = [];
+
+  for(var i=0; i<data['features'].length; i++){
+    if(data['features'][i]['properties']['MonitoringLocationIdentifier'].length == 18){
+      useData.push(data['features'][i])
+    }
+  }
+  console.log(useData);
+
+
+  var marker = L.geoJson(useData, {
     pointToLayer: function(feature,latlng){
       var markerStyle = {
         fillColor:'#FDB515',
