@@ -3,5 +3,5 @@ Interactive web map that pulls data from the water quality portal for CT DEEP or
 
 All data currently in WQX:
 
-https://marybecker.github.io/CT_WQX_SiteMap/
+https://ctdeepwatermonitoring.github.io/CT_WQP_Data/
 
